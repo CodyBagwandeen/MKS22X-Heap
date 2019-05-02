@@ -2,7 +2,7 @@ public class MyHeap{
 
   private static void pushDown(int[]data, int size, int index){
 
-    if(2 * index +1 > data.length){
+    if(2 * index +1 > data.length){ // if it has no children
       return;
     }
 
@@ -24,7 +24,17 @@ public class MyHeap{
   }
 
   public static void heapsort(int[]data){
+    heapify(data);
+    int size = data.length -1;
 
+    while(size > 0){
+      int val = data[0]; // swap max and the last index
+      data[0] = data[size];
+      data[size] = val;
+
+      pushDown(data,size,0); // push down to re-Heap
+      size--;
+    }
   }
 
 }
