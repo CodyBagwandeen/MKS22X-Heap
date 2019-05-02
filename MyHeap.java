@@ -14,7 +14,11 @@ public class MyHeap{
     }
 
     if( data[left] > data[right]) { // left child is the biggest of the 3
-
+      swap(data, left, index);
+      pushDown(data, data.length, left);
+    } else {
+      swap(data,right,index);
+      pushDown(data, data.length,right);
     }
 
   }
