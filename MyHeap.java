@@ -9,8 +9,12 @@ public class MyHeap{
     int left = 2 * index +1;
     int right = 2 * index +2;
 
-    if(data[index] > data[left] && data[index] > data[right]){
+    if(data[index] > data[left] && data[index] > data[right]){ // if is bigger than its children
       return;
+    }
+
+    if( data[left] > data[right]) { // left child is the biggest of the 3
+
     }
 
   }
@@ -30,13 +34,18 @@ public class MyHeap{
     int size = data.length -1;
 
     while(size > 0){
-      int val = data[0]; // swap max and the last index
-      data[0] = data[size];
-      data[size] = val;
+
+      swap(data,0,size); // swap the max and the last
 
       pushDown(data,size,0); // push down to re-Heap
       size--;
     }
+  }
+
+  public static void swap(int[]data, int i, int j){
+    int temp = data[i];
+    data[i] = data[j];
+    data[j] = temp;
   }
 
 }
